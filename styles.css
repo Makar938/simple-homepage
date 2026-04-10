@@ -1,0 +1,71 @@
+/* Контейнер переключателя */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Скрываем стандартный чекбокс */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Фон переключателя (слайдер) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+/* Сам кружок-бегунок */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+
+  /* Настройки иконки для светлой темы (Солнце) */
+  background-image: url('resources/Sun_fill.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px; /* Настрой размер под свою иконку */
+}
+
+/* Цвет фона при включении (Темная тема) */
+input:checked + .slider {
+  background-color: #223344;
+}
+
+/* Фокус при управлении с клавиатуры */
+input:focus + .slider {
+  box-shadow: 0 0 1px #223344;
+}
+
+/* Движение кружка и смена иконки на Луну */
+input:checked + .slider:before {
+  transform: translateX(26px);
+  
+  /* Настройки иконки для темной темы (Луна) */
+  background-image: url('resources/Moon_fill.svg');
+}
+
+/* Закругление углов для версии .round */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
